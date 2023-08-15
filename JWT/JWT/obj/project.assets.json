@@ -4861,19 +4861,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\emanm\\.nuget\\packages\\": {}
+    "C:\\Users\\emonem\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emanm\\Downloads\\Task\\Day03\\JWT\\JWT\\JWT.csproj",
+      "projectUniqueName": "E:\\Intrn Code\\try\\New folder\\ApiTask\\JWT\\JWT\\JWT.csproj",
       "projectName": "JWT",
-      "projectPath": "C:\\Users\\emanm\\Downloads\\Task\\Day03\\JWT\\JWT\\JWT.csproj",
-      "packagesPath": "C:\\Users\\emanm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emanm\\Downloads\\Task\\Day03\\JWT\\JWT\\obj\\",
+      "projectPath": "E:\\Intrn Code\\try\\New folder\\ApiTask\\JWT\\JWT\\JWT.csproj",
+      "packagesPath": "C:\\Users\\emonem\\.nuget\\packages\\",
+      "outputPath": "E:\\Intrn Code\\try\\New folder\\ApiTask\\JWT\\JWT\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\emanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\emonem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4881,6 +4886,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4957,7 +4963,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

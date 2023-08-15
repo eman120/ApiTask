@@ -22,7 +22,7 @@ namespace JWT.Controllers
         #region Login Users Data
 
 
-
+        [Authorize(Policy = "AllowAll")]
         [HttpGet]
         public async Task<ActionResult> GetUserData()
         {
@@ -31,26 +31,26 @@ namespace JWT.Controllers
             {
                 Data = "The username =" + user.UserName
                             + "\n" + "Email : " + user.Email
-                             + "\n" + "Role : " + user.UserRole
+                             //+ "\n" + "Role : " + user.UserRole
             });
         }
         #endregion
 
 
         #region Data For Admin
-        [HttpGet]
-        [Route("Admin")]
-        [Authorize(Policy = "AllowAdmin")]
-        public ActionResult GetDataForAdmins()
-        {
-            return Ok(new { Data = "This is For Admins Only" });
-        }
+        //[HttpGet]
+        //[Route("Admin")]
+        //[Authorize(Policy = "AllowAdmin")]
+        //public ActionResult GetDataForAdmins()
+        //{
+        //    return Ok(new { Data = "This is For Admins Only" });
+        //}
         #endregion
 
         #region Data For Users
         [HttpGet]
         [Route("User")]
-        [Authorize(Policy = "AllowUser")]
+        [Authorize(Policy = "AllowAll")]
         public ActionResult GetDataForUser()
         {
             return Ok(new { Data="This Data For Users Only" });

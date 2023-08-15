@@ -1,0 +1,10 @@
+<form (ngSubmit)="login()">
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" [(ngModel)]="credentials.mobileNumber" name="mobileNumber" required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="credentials.password" name="password" required>
+  
+    <button type="submit">Login</button>
+  </form>
+  

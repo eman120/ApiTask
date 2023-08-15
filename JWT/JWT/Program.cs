@@ -85,15 +85,21 @@ builder.Services.AddAuthentication(options =>
 
 #region Authorization
 
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("AllowAdmin", policy => policy
+//        .RequireClaim(ClaimTypes.Role, "Admin")
+//        .RequireClaim(ClaimTypes.NameIdentifier));
+
+//    options.AddPolicy("AllowUser", policy => policy
+//        .RequireClaim(ClaimTypes.Role, "User"));
+//});
+
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AllowAdmin", policy => policy
-        .RequireClaim(ClaimTypes.Role, "Admin")
-        .RequireClaim(ClaimTypes.NameIdentifier));
-
-    options.AddPolicy("AllowUser", policy => policy
-        .RequireClaim(ClaimTypes.Role, "User"));
+    options.AddPolicy("AllowAll", policy => policy.RequireAssertion(_ => true));
 });
+
 
 #endregion
 

@@ -13,6 +13,7 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 using Gma.QrCodeNet.Encoding;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JWT.Controllers;
 
@@ -33,51 +34,52 @@ public class AppUserController : ControllerBase
 
 
     #region Admin Register
-    [HttpPost]
-    [Route("AdminRegisteration")]
-    public async Task<ActionResult> RegisterAdmin(RegisterDto RegisterDto)
-    {
-        var userExists = await _userManager.FindByEmailAsync(RegisterDto.Email);
-        if (userExists != null)
-        {
-            return BadRequest("User already exists");
-        }
+    //[HttpPost]
+    //[Route("AdminRegisteration")]
+    //public async Task<ActionResult> RegisterAdmin(RegisterDto RegisterDto)
+    //{
+    //    var userExists = await _userManager.FindByEmailAsync(RegisterDto.Email);
+    //    if (userExists != null)
+    //    {
+    //        return BadRequest("User already exists");
+    //    }
 
-        var UserToAdd = new ApplicationUser
-        {
-            UserName = RegisterDto.UserName,
-            Email = RegisterDto.Email,
-            UserRole = RegisterDto.UserRole
-        };
+    //    var UserToAdd = new ApplicationUser
+    //    {
+    //        UserName = RegisterDto.UserName,
+    //        Email = RegisterDto.Email,
+    //        UserRole = RegisterDto.UserRole
+    //    };
 
-        var Result = await _userManager.CreateAsync(UserToAdd, RegisterDto.Password);
-        if (!Result.Succeeded)
-        {
-            return BadRequest(Result.Errors);
-        }
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.NameIdentifier , UserToAdd.Id),
-            new Claim(ClaimTypes.Role, "Admin")
-        };
+    //    var Result = await _userManager.CreateAsync(UserToAdd, RegisterDto.Password);
+    //    if (!Result.Succeeded)
+    //    {
+    //        return BadRequest(Result.Errors);
+    //    }
+    //    var claims = new List<Claim>
+    //    {
+    //        new Claim(ClaimTypes.NameIdentifier , UserToAdd.Id),
+    //        new Claim(ClaimTypes.Role, "Admin")
+    //    };
 
-        await _userManager.AddClaimsAsync(UserToAdd, claims);
-        return NoContent();
+    //    await _userManager.AddClaimsAsync(UserToAdd, claims);
+    //    return NoContent();
 
 
-    }
+    //}
     #endregion
 
     #region User Register
     [HttpPost]
     [Route("User Registeration")]
-     public async Task<ActionResult>Register(RegisterDto RegisterDto)
+    [Authorize(Policy = "AllowAll")]
+    public async Task<ActionResult>Register(RegisterDto RegisterDto)
     {
         var UserToAdd = new ApplicationUser
         {
             UserName = RegisterDto.UserName,
             Email = RegisterDto.Email,
-            UserRole = RegisterDto.UserRole,
+            //UserRole = RegisterDto.UserRole,
             MobileNumber = RegisterDto.MobileNumber,
             Address = RegisterDto.Address,
             Age = RegisterDto.Age
@@ -146,6 +148,7 @@ public class AppUserController : ControllerBase
 
     [HttpPost]
     [Route("Login")]
+    [Authorize(Policy = "AllowAll")]
     public async Task<ActionResult<TokenDto>> Login_Clean(LogInDto credentials)
     {
         var user = await _userManager.FindByNameAsync(credentials.UserName);
