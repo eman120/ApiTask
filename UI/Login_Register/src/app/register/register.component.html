@@ -17,10 +17,11 @@
 <br>
 <br>
     <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="Password" required>
-
+    <input type="password" id="password" formControlName="Password" required pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$"
+    >
     <div class= "errorColor" *ngIf="registrationForm.get('Password')?.invalid && registrationForm.get('Password')?.touched">
-        <div *ngIf="registrationForm.get('Password')?.hasError('required')">Password is required.</div>
+      <div *ngIf="registrationForm.get('Password')?.hasError('required')">Password is required.</div>
+      <div *ngIf="registrationForm.get('Password')?.hasError('pattern')">Password must be at least 8 characters long and contain at least one digit and one special character.</div>
     </div>
 <br>
 <br>

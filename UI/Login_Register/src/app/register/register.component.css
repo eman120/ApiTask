@@ -1,3 +1,62 @@
 .errorColor{
     color: red;
 }
+
+/* Apply basic styling to the form */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Style labels */
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Style form controls */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Highlight invalid form controls */
+  input.ng-invalid.ng-touched {
+    border-color: #f44336;
+  }
+  
+  /* Display validation messages */
+  div.error-message {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Style the submit button */
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
