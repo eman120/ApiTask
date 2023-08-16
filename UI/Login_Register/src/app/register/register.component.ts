@@ -104,7 +104,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
-import { map } from 'rxjs';
+// import { map } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -118,7 +118,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: ApiService,
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private toastr: ToastrService
   ) {}
 
