@@ -138,16 +138,16 @@ export class RegisterComponent implements OnInit {
       const registerDto = this.registrationForm.value;
       this.userService.registerUser(registerDto).subscribe(
         (response: any) => {
-          // Create an <img> element and set the source
-          const imgElement = document.createElement('img');
-          imgElement.src = URL.createObjectURL(response);
-
-          // Append the image to a container in the HTML
-          const imgContainer = document.getElementById('imgContainer');
-          if (imgContainer) {
-            imgContainer.innerHTML = '';
-            imgContainer.appendChild(imgElement);
-          }
+          debugger;
+          console.log(response);
+          // // Convert the response to a Blob
+          // const blob = new Blob([response], { type: 'image/png' });
+      
+          // // Convert the Blob to a safe URL
+          // const qrCodeUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
+      
+          // // Set the safe URL to the qrcodeImage variable
+           this.qrcodeImage = "data:image/png;base64,"+response;
 
           // Display success message using Toastr
           this.toastr.success('Registration successful', 'Success');

@@ -100,7 +100,8 @@ public class AppUserController : ControllerBase
 
         // Generate QR code and return response
         byte[] qrCodeBytes = GenerateQRCode($"Mobile: {RegisterDto.MobileNumber}, Address: {RegisterDto.Address}");
-        return File(qrCodeBytes, "image/png", "qrcode.png");
+       
+        return Ok(qrCodeBytes);
     }
     #endregion 
 
