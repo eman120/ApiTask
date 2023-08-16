@@ -19,7 +19,8 @@ builder.Services.AddSwaggerGen();
 var corsPolicy = "AllowAll";
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(corsPolicy, p => p.AllowAnyOrigin()
+    options.AddPolicy(corsPolicy, 
+        p => p.AllowAnyOrigin()
     .AllowAnyHeader()
     .AllowAnyMethod());
 });
@@ -114,6 +115,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(corsPolicy);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

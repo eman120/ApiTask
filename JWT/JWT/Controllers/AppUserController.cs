@@ -71,7 +71,7 @@ public class AppUserController : ControllerBase
 
     #region User Register
     [HttpPost]
-    [Route("User Registeration")]
+    [Route("Registeration")]
     [Authorize(Policy = "AllowAll")]
     public async Task<ActionResult>Register(RegisterDto RegisterDto)
     {
